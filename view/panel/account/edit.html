@@ -19,15 +19,27 @@
 			<p class="alert-success">@echo $updateSuccess</p>
 		@end
         
-        <div class="block">
-			<p>Email: @echo $account['email']</p>
-			<br>
-            <form class="form" action="/admin/account/edit" method="post" >
-              <input class="main-input" name="name" type="text" placeholder="Navn*" value="@echo $account['name']" />
-              <input class="main-input" name="old" type="password" placeholder="Gamle kodeord*" /> 
-              <input class="main-input" name="new" type="password" placeholder="Nye kodeord*" /> 
-              <input class="main-input" name="repeat" type="password" placeholder="Gentag nye kodeord*" /> 
-              <input class="main-form-button" name="edit-account-submit" type="submit" value="Gem ændring" />
+		<div class="block">
+            <p>Email: @echo $account['email']</p>
+            <br>
+            <form class="form" action="/admin/account/edit" method="post">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <input class="main-input" name="name" type="text" placeholder="Navn" value="@echo $account['name']" />
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <input class="main-input" name="old" type="password" placeholder="Gamle kodeord" /> 
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <input class="main-input" name="new" type="password" placeholder="Nye kodeord" /> 
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <input class="main-input" name="repeat" type="password" placeholder="Gentag nye kodeord" /> 
+                    </div>
+                    <div class="col-xs-12">
+                        <input class="main-form-button" name="edit-account-submit" type="submit" value="Gem ændring" />
+                    </div>
+                </div>
             </form>
         </div>
 			
