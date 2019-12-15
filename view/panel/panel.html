@@ -1,0 +1,112 @@
+@extends('base')
+
+@leap('title')
+
+@block('styles')
+	<link rel="stylesheet" href="@asset('css/panel.css', true)">
+	@insert('styles')
+@endblock
+
+@block('body')
+	<nav>
+	  <div class="row">
+		
+		<div class="col-xs-4 dropdown"> 
+		  <a onClick="drop();"> 
+			<div></div> <div></div> <div></div> 
+		  </a> 
+		</div>
+		
+	<script>
+	function drop() {
+	  var nav = document.getElementById("nav");
+	  nav.style.display = nav.style.display === 'inline-block' ? 'none' : 'inline-block';
+	}
+	</script>
+		
+		<div class="col-xs-4 col-xs-offset-right-4 col-md-12 col-md-offset-right-0">
+		  <div class="isvaffel">
+			<a class="icon" href="/admin"><img src="@asset('img/isvaffel.svg')" alt="Paradis Isvaffel" /></a>
+		  </div>
+		</div>
+
+		<div class="col-xs-12 nav-content" id="nav">
+		
+		  <p class="title">Generelt</p>
+		  <a class="tab" href="/admin">Forside</a>
+		  <a class="tab" href="/admin/locations">Butikker</a>
+		  <a class="tab" href="/admin/selection">Sortiment</a>
+		  <!--<a class="tab" href="/admin/log">Aktivitet</a>-->
+		  <a class="tab" href="/admin/help">Hjælp</a>
+			  
+		  <p class="title">E-Commerce</p>
+		  <a class="tab drop-button">Ordrer<i class="notify">3</i><i class="material-icons">keyboard_arrow_down</i></a>
+		  <div class="drop-content">
+			  <a class="tab " href="/admin/orders">Aktive ordrer<i class="notify">3</i></a>
+			  <a class="tab " href="/admin/order-history">Historik</a>
+		  </div>
+		  <!--<a class="tab" href="/admin/statistics">Statistik <sup>Beta</sup></a>-->
+		  <!--<a class="tab" href="/admin/settings">Indstillinger</a>-->
+			  
+		  <p class="title">Bruger</p>
+		  <a class="tab" href="/admin/account/edit">Rediger konto</a>
+			
+		</div>
+		
+	  </div>
+	</nav>
+
+	<main>
+	  
+	  <section class="top">
+		  
+		<div class="left">
+		  <a class="logo" href="/admin"><img src="@asset('img/paradis.svg')" alt="Paradis Danmark" /></a>
+		</div>
+		
+		<div class="right">
+		  <ul>
+			<li><a class="txt">@insert('username')</a></li>
+			<li><a class="btn" href="/admin/logout">Log ud</a></li>
+		  </ul>
+		</div>
+		  
+	  </section>
+	  
+	  <section class="content">
+		
+		@insert('content')
+		  
+	  </section>
+		
+	  <section class="bottom">
+		
+		<div class="row">	
+		  <div class="col-xs-12">
+			<div class="item"><p>Copyright © @date('Y') Paradis Danmark A/S.</br>Alle Rettigheder Reserveret.</p></div>
+		  </div>
+		</div>
+		
+	  </section>
+		
+	</main>
+
+	<script>
+	var dropdown = document.getElementsByClassName("drop-button");
+	var i;
+
+	for (i = 0; i < dropdown.length; i++) {
+	  dropdown[i].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var dropdownContent = this.nextElementSibling;
+		if (dropdownContent.style.display === "block") {
+		  dropdownContent.style.display = "none";
+		} else {
+		  dropdownContent.style.display = "block";
+		}
+	  });
+	}
+	</script>
+@endblock
+
+@leap('scripts')

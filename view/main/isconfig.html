@@ -1,0 +1,346 @@
+@extends('base')
+
+@block('title', 'MinParadis Iskonfigurator - Paradis')
+
+@block('styles')
+<link rel="stylesheet" href="@asset('css/isconfig.css', true)">
+@endblock
+
+@block ('body')
+<div class="top-menu not-desktop" id="topbar">
+    <ul class="top-menu-wrapper">
+        <li class="top-menu-item">
+            <a href="/">
+                <img src="@asset('img/main/paradis.svg')" alt="Paradis isvaffel logo" />
+            </a>
+        </li>
+        <li class="top-menu-item mobile-cart">
+            <a>
+                <img src="@asset('img/main/paradis-vogn.svg')" alt="Paradis vogn" />
+            </a>
+        </li>
+    </ul>
+</div>
+<nav class="menu">
+    <div class="menu-wrapper">
+        <ul class="menu-item-list">
+            <li class="menu-item logo-item">
+                <a href="/">
+                    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 90">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #f9b500;
+                                    stroke: #0d0802;
+                                    stroke-linejoin: round;
+                                    stroke-width: 2.5px;
+                                }
+                            </style>
+                        </defs>
+                        <g id="cone" data-svg-origin="23.050521850585938 38" transform="matrix(1,0,0,1,0,0)"
+                            style="transform-origin: 0px 0px 0px;">
+                            <path class="cls-1" d="M10.36 38l25.54 5.38s-18.58 45-22.65 44.19S10.36 38 10.36 38z">
+                            </path>
+                            <path fill="none" stroke-width="2.5" stroke-linejoin="round" stroke="#0d0802"
+                                d="M10.47 75.08l17.72-19.21-5.31-13.19-10.35 10.21 8.52 23.83"></path>
+                        </g>
+                        <circle id="red" cx="14.15" cy="29.68" r="11.48" stroke-width="2.5" fill="#cc302b"
+                            stroke-miterlimit="10" stroke="#0d0802"
+                            data-svg-origin="14.149999618530273 41.15999984741211" transform="matrix(1,0,0,1,0,0)"
+                            style="transform-origin: 0px 0px 0px;"></circle>
+                        <circle id="yellow" class="cls-1" cx="36.81" cy="34.35" r="11.48"
+                            data-svg-origin="36.810001373291016 45.82999801635742" transform="matrix(1,0,0,1,0,0)"
+                            style="transform-origin: 0px 0px 0px;"></circle>
+                        <circle id="white" cx="29.08" cy="17.27" r="11.48" fill="#fff" stroke-width="2.5"
+                            stroke-linejoin="round" stroke="#0d0802"
+                            data-svg-origin="29.079999923706055 17.270000457763672" transform="matrix(1,0,0,1,0,0)"
+                            style="transform-origin: 0px 0px 0px;"></circle>
+                    </svg>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="/produkter">
+                    <img src="@asset('img/main/paradis-kop.svg')" alt="Isbæger" id="menu-cup" />
+                    <p>Produkter</p>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="/find-butik">
+                    <img src="@asset('img/main/paradis-butik.svg')" alt="Paradis butik" />
+                    <p>Find butik</p>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="/catering">
+                    <img src="@asset('img/main/paradis-klokke.svg')" alt="Paradis klokke" />
+                    <p>Catering</p>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="/findbutik.html">
+                    <img src="@asset('img/main/paradis-vogn.svg')" alt="Paradis vogn" />
+                    <p>Bestilling</p>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="/om-paradis">
+                    <img src="@asset('img/main/paradis-info.svg')" alt="Paradis info" />
+                    <p>Om paradis</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="config-menu not-mobile" id="configMenu">
+    <ul>
+        <li>
+            <a href="/minparadis">
+                Find butik
+            </a>
+        </li>
+        <li>
+            <button onclick="ChangeSection(grundsmage)" class="configmenubutton active">
+                Grundsmag
+            </button>
+        </li>
+        <li>
+            <button onclick="ChangeSection(ekstraSmage)" class="configmenubutton">
+                Ekstra smage<i class="counter">0/2</i>
+            </button>
+        </li>
+        <li>
+            <button onclick="ChangeSection(striber)" class="configmenubutton">
+                Striber<i class="counter">0/2</i>
+            </button>
+        </li>
+        <li>
+            <button onclick="ChangeSection(knas)" class="configmenubutton">
+                Knas og stykker<i class="counter">0/2</i>
+            </button>
+        </li>
+        <li>
+            <button onclick="ChangeSection(kurv)" class="configmenubutton">
+                Føj til kurv
+            </button>
+        </li>
+    </ul>
+    <div class="back-forward-wrapper">
+        <button onclick="NextSection()" class="main-button not-mobile">
+            Fortsæt videre
+        </button>
+        <button onclick="PrevSection()" class="sub-button not-mobile">
+            Tilbage til forrige
+        </button>
+    </div>
+</div>
+<button type="button" class="menu-toggle" onclick="ToggleMenu()" id="mobileToggle">Grundsmag</button>
+<div class="mobile-config-menu not-desktop" id="mobileConfigMenu">
+    <ul>
+        <li>
+            <a href="/minparadis" class="configmenubutton">
+                Find butik
+            </a>
+        </li>
+        <li>
+            <button onclick="ChangeSection(grundsmage)" class="configmenubutton">
+                Grundsmag
+            </button>
+        </li>
+        <li>
+            <button onclick="ChangeSection(ekstraSmage)" class="configmenubutton">
+                Ekstra smage<i class="counter">0/2</i>
+            </button>
+        </li>
+        <li>
+            <button onclick="ChangeSection(striber)" class="configmenubutton">
+                Striber<i class="counter">0/2</i>
+            </button>
+        </li>
+        <li>
+            <button onclick="ChangeSection(knas)" class="configmenubutton">
+                Knas og stykker<i class="counter">0/2</i>
+            </button>
+        </li>
+        <li>
+            <button onclick="ChangeSection(kurv)" class="configmenubutton">
+                Føj til kurv
+            </button>
+        </li>
+    </ul>
+    <div class="back-forward-wrapper">
+        <button onclick="PrevSection()" class="not-desktop left-chev" id="prevChev" style="visibility: hidden;">
+            <img src="@asset('img/main/chevron_left-24px.svg')" alt="left chevron">
+        </button>
+        <button onclick="NextSection()" class="not-desktop right-chev" id="nextChev">
+            <img src="@asset('img/main/chevron_right-24px.svg')" alt="right chevron">
+        </button>
+    </div>
+</div>
+<form class="site-content config-spacing">
+    <div class="container-wide">
+        <div class="row">
+            <div class="col-xs-12 center-text">
+                <h1 class="heading config-heading">MIN PARADIS</h1>
+                <p id="headConfigText" class="text config-text">
+                    Vælg en grundsmag til MinParadis
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="beige config-content">
+
+
+        @isset $getSelectionError
+        <p class="alert-error">@echo $getSelectionError</p>
+        @else
+            @if (is_array($selection) && !isset($getShopError))
+                
+                <section id="grundsmage" class="container-wide config-section active-section">
+                    <div class="row">
+                        <div class="col-xs-12 center-text">
+                            <h3 class="config-desc-heading">
+                                Klik på tilføj for at vælge en grundsmag til din is
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row item-row">
+                        @foreach ($selection as $product)
+                            @if (in_array($product['id'], $shop['selection']) && $product['category'] == 1)
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="config-item">
+                                        <div class="text-wrapper">
+                                            <h3 class="item-name">@echo $product['name']</h3>
+                                            <h4 class="item-sub">Grundsmag</h4>
+                                            <button onclick="this.classList.toggle('active');" type="button">Tilføj</button>
+                                            <input type="radio" name="grundsmag[]" value="@echo $product['id']" hidden />
+                                        </div>
+                                        <div class="item-thumb">
+                                            <img src="@asset $product['image']" alt="@echo $product['name']" />
+                                        </div>
+                                    </div>
+                                </div>
+                            @end
+                        @end
+                    </div>
+                </section>
+        
+        
+                <section id="ekstraSmage" class="container-wide config-section">
+                    <div class="row">
+                        <div class="col-xs-12 center-text">
+                            <h3 class="config-desc-heading">
+                                Klik på tilføj for hver ingrediens du vil have med
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row item-row">
+                        @foreach ($selection as $product)
+                            @if (in_array($product['id'], $shop['selection']) && $product['category'] == 1)
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="config-item">
+                                        <div class="text-wrapper">
+                                            <h3 class="item-name">@echo $product['name']</h3>
+                                            <h4 class="item-sub">Ekstra smag</h4>
+                                            <button onclick="this.classList.toggle('active');" type="button">Tilføj</button>
+                                            <input type="radio" name="ekstra[]" value="@echo $product['id']" hidden />
+                                        </div>
+                                        <div class="item-thumb">
+                                            <img src="@asset $product['image']" alt="@echo $product['name']" />
+                                        </div>
+                                    </div>
+                                </div>
+                            @end
+                        @end
+                    </div>
+                </section>
+        
+        
+                <section id="striber" class="container-wide config-section">
+                    <div class="row">
+                        <div class="col-xs-12 center-text">
+                            <h3 class="config-desc-heading">
+                                Klik på tilføj for hver slags stribe du vil have med
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row item-row">
+                        @foreach ($selection as $product)
+                            @if (in_array($product['id'], $shop['selection']) && $product['category'] == 2)
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="config-item">
+                                        <div class="text-wrapper">
+                                            <h3 class="item-name">@echo $product['name']</h3>
+                                            <h4 class="item-sub">Striber</h4>
+                                            <button onclick="this.classList.toggle('active');" type="button">Tilføj</button>
+                                            <input type="radio" name="striber[]" value="@echo $product['id']" hidden />
+                                        </div>
+                                        <div class="item-thumb">
+                                            <img class="shadow" src="@asset('img/main/shadow-icecream.png')" alt="skygge" />
+                                            <img src="@asset $product['image']" alt="@echo $product['name']" />
+                                        </div>
+                                    </div>
+                                </div>
+                            @end
+                        @end
+                    </div>
+                </section>
+        
+        
+                <section id="knas" class="container-wide config-section">
+                    <div class="row">
+                        <div class="col-xs-12 center-text">
+                            <h3 class="config-desc-heading">
+                                Klik på tilføj for hver slags knas du vil have med
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row item-row">
+                        @foreach ($selection as $product)
+                            @if (in_array($product['id'], $shop['selection']) && $product['category'] == 3)
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="config-item">
+                                        <div class="text-wrapper">
+                                            <h3 class="item-name">@echo $product['name']</h3>
+                                            <h4 class="item-sub">Knas & stykker</h4>
+                                            <button onclick="this.classList.toggle('active');" type="button">Tilføj</button>
+                                            <input type="radio" name="knas[]" value="@echo $product['id']" hidden />
+                                        </div>
+                                        <div class="item-thumb">
+                                            <img class="shadow" src="@asset('img/main/shadow-icecream.png')" alt="skygge" />
+                                            <img src="@asset $product['image']" alt="@echo $product['name']" />
+                                        </div>
+                                    </div>
+                                </div>
+                            @end
+                        @end
+                    </div>
+                </section>
+        
+        
+                <section id="kurv" class="container-wide config-section">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3 class="config-desc-heading">
+                                Bekræft dine valg og tilføj til kurv
+                            </h3>
+                        </div>
+                        <div class="col-xs-12">
+                            <button type="button" class="main-button not-mobile">Føj til kurv</button>
+                        </div>
+                    </div>
+                </section>
+
+            @else
+                <p>Hovsa, der opstod en fejl under indlæsningen af sortimentet</p>
+            @end
+        @end
+
+
+    </div>
+</form>
+@endblock
+
+@block('scripts')
+<script src="@asset('js/hide-menu-on-scroll.js', true)"></script>
+<script src="@asset('js/change-active.js', true)"></script>
+@endblock

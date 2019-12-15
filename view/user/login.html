@@ -1,0 +1,51 @@
+@extends('base')
+
+@block('title', 'Log ind - Paradis Admin')
+
+@block('styles')
+<link rel="stylesheet" href="@asset('css/user.css', true)">
+@endblock
+
+@block ('body')
+<div class="login-hero-container not-mobile">
+	<img class="login-hero" src="/assets/img/insta2.jpg" alt="Large side image">
+</div>
+<div class="container-wide">
+	<img class="login-logo" src="/assets/img/isvaffel.svg" alt="Paradis isvaffel logo">
+	<div class="row login-row">
+		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-4 login-wrapper">
+			<h2 class="login-heading">Paradis Admin</h2>
+			<p class="text login-text">Log ind for at fortsætte</p>
+			@isset ($loginError)
+				<p class="alert-error">@echo $loginError</p>
+			@end
+			<form class="login-form" action="/admin/login" method="post">
+				<div class="email-input">
+					<input name="email" class="top" type="email" required />
+					<label for="email" class="label-email">
+						<span class="content-email">Email</span>
+					</label>
+				</div>
+				<div class="password-input">
+					<input name="pass" class="bottom" type="password" required />
+					<label for="pass" class="label-password">
+						<span>Kodeord</span>
+					</label>
+				</div>
+				<div class="cookie-wrapper">
+					<label class="si si-switcher" for="defaultSwitcher">
+						<input style="display: none;" id="defaultSwitcher" type="checkbox" name="cookie" checked />
+						<span class="si-label">Husk mig (Cookie)</span> 
+					</label>
+					<!-- <label class="forgot-password">Glemt kodeord?</label> -->
+				</div>
+				<input name="login-submit" type="submit" value="Log ind" class="login-button" />
+			</form>
+			<div class="copyright-wrapper">
+				<p class="text footer-text copyright">Copyright &copy; 2019 Paradis Danmark A/S. <br>Alle Rettigheder
+					Reserveres.</p>
+			</div>
+		</div>
+	</div>
+</div>
+@endblock

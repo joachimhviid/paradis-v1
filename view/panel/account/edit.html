@@ -1,0 +1,36 @@
+@extends('panel.panel')
+
+@block('title', 'Rediger konto - Paradis Admin')
+
+@block('username', $account['name'])
+
+@block('content')
+	<div class="row">
+	  <div class="col-xs-12">
+			
+		<div class="title-container">
+		  <h2>Rediger konto</h2>
+		  <h3>Skift navn og kodeord</h3>
+		</div>
+		
+		@if (isset($updateError))
+			<p class="alert-error">@echo $updateError</p>
+		@elseif (isset($updateSuccess))
+			<p class="alert-success">@echo $updateSuccess</p>
+		@end
+        
+        <div class="block">
+			<p>Email: @echo $account['email']</p>
+			<br>
+            <form class="form" action="/admin/account/edit" method="post" >
+              <input class="main-input" name="name" type="text" placeholder="Navn*" value="@echo $account['name']" />
+              <input class="main-input" name="old" type="password" placeholder="Gamle kodeord*" /> 
+              <input class="main-input" name="new" type="password" placeholder="Nye kodeord*" /> 
+              <input class="main-input" name="repeat" type="password" placeholder="Gentag nye kodeord*" /> 
+              <input class="main-form-button" name="edit-account-submit" type="submit" value="Gem ændring" />
+            </form>
+        </div>
+			
+	  </div>
+	</div>
+@endblock

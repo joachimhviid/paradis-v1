@@ -1,0 +1,121 @@
+@extends('panel.panel')
+
+@block('title', 'Butikker - Paradis Admin')
+
+@block('username', $account['name'])
+
+@block('content')
+	<div class="row">
+	  <div class="col-xs-12">
+
+        <div class="title-container">
+            <h2>Opret produkt</h2>
+        </div>
+        @if (isset($createSelectionError))
+            <p class="alert-error">@echo $createSelectionError</p>
+        @elseif (isset($createSelectionSuccess))
+            <p class="alert-success">@echo $createSelectionSuccess</p>
+        @end
+        @if ($account['admin'] === 1)
+        <div class="block">
+            <form class="form main-form" id="uploadSelection" action="@self" method="post" enctype="multipart/form-data" >
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <select class="main-select" name="category" required>
+                            <option hidden selected disabled>Kategori*</option>
+                            <option value="1">Isvariant</option>
+                            <option value="2">Striber</option>
+                            <option value="3">Knas & stykker</option>
+                            <option value="4">Isdesserter</option>
+                            <option value="5">Isbokse</option>
+                            <option value="6">Shakes og Frappes</option>
+                            <option value="7">Varme drikke</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <input class="main-input" name="name" type="text" placeholder="Navn*" required />
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <input class="main-input" name="teaser" type="text" placeholder="Kort beskrivelse*" required />
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <input class="file-input" type="file" id="fileSelection" name="image" data-multiple-caption="{count} files selected" required>
+                        <label for="fileSelection"><img src="/assets/img/cloud-upload-icon.svg" alt="cloud upload icon"><span>Vælg et billede (PNG)</span></label>
+                    </div>
+                    <div class="col-xs-12">
+                        <input class="main-form-button" name="create-selection-submit" type="submit" value="Opret" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script>
+            document.getElementById('uploadSelection').addEventListener('submit', function(e) {
+                var file = document.getElementById('fileSelection').files[0];
+                if (!file || file.size > 10485760) { // 10 MB
+                    e.preventDefault(); 
+                    alert("Billedet må max fylde 10 MB");     
+                } else if (!file || file.type !== "image/png") {
+                    e.preventDefault(); 
+                    alert("Billedet skal være af typen PNG"); 
+                }
+            }, false);
+            var inputs = document.querySelectorAll( '.file-input' );
+            Array.prototype.forEach.call( inputs, function( input )
+            {
+                var label	 = input.nextElementSibling,
+                    labelVal = label.innerHTML;
+
+                input.addEventListener( 'change', function( e )
+                {
+                    var fileName = '';
+                    if( this.files && this.files.length > 1 )
+                        fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+                    else
+                        fileName = e.target.value.split( '\\' ).pop();
+
+                    if( fileName )
+                        label.querySelector( 'span' ).innerHTML = fileName;
+                    else
+                        label.innerHTML = labelVal;
+                });
+            });
+        </script>
+        @end
+
+        <div class="title-container">
+            <h2>Sortiment</h2>
+        </div>
+        @if (isset($deleteSelectionError))
+            <p class="alert-error">@echo $deleteSelectionError</p>
+        @elseif (isset($deleteSelectionSuccess))
+            <p class="alert-success">@echo $deleteSelectionSuccess</p>
+        @end
+        <div class="block">
+            @isset $getSelectionError
+                <p class="alert-error">@echo $getSelectionError</p>
+            @else
+                @if (is_array($selection))
+                    <div class="row">
+                        @foreach ($selection as $product)
+                            <div class="col-xs-12 col-sm-4 col-smd-4 col-md-3">
+                                <form class="form card card-flex" action="@self" method="post">
+                                    <p><b>@echo $product['name']</b></p>
+                                    <div><p class="card-text">@echo $product['description']</p></div>
+                                    <img src="@asset $product['image']" alt="@echo $product['name']" style="width:200px;height:auto;" />
+                                    <input name="id" type="number" value="@echo $product['id']" hidden />
+                                    <button class="main-form-button button-trash button-text button-cardcorner" name="delete-selection-submit" type="submit">
+                                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g><title>background</title><rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/></g><g><title>Layer 1</title><path fill="#c6beb3" id="svg_2" d="m12,2c-5.5,0 -10,4.5 -10,10c0,5.5 4.5,10 10,10s10,-4.5 10,-10c0,-5.5 -4.5,-10 -10,-10zm4.9,13.5l-1.4,1.4l-3.5,-3.5l-3.5,3.5l-1.4,-1.4l3.5,-3.5l-3.5,-3.5l1.4,-1.4l3.5,3.5l3.5,-3.5l1.4,1.4l-3.5,3.5l3.5,3.5z"/></g></svg>
+                                    </button>
+                                </form>
+                            </div>
+                        @end
+                    </div>
+                @else
+                    <p>Der kunne ikke findes nogle varianter</p>
+                @end
+            @end
+        </div>
+			
+	  </div>
+	</div>
+@endblock

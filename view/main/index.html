@@ -1,0 +1,244 @@
+@extends('base')
+
+@block('title', 'Paradis - Handcrafted Ice Cream')
+
+@block('styles')
+<link rel="stylesheet" href="@asset('css/main.css', true)">
+@endblock
+
+@block ('body')
+<div class="top-menu not-desktop" id="topbar">
+    <ul class="top-menu-wrapper">
+        <li class="top-menu-item"><a href="/">
+            <img src="@asset('img/main/paradis.svg')" alt="Paradis isvaffel logo"/>
+        </a></li>
+        <li class="top-menu-item mobile-cart"><a href="#">
+                <img src="@asset('img/main/paradis-vogn.svg')" alt="Paradis vogn"/>
+        </a></li>
+    </ul>
+</div>
+<nav class="menu">
+    <div class="menu-wrapper">
+        <ul class="menu-item-list">
+            <li class="menu-item logo-item">
+                <a href="/">
+                    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 90">
+                        <defs><style>.cls-1{fill:#f9b500;stroke:#0d0802;stroke-linejoin:round;stroke-width:2.5px}</style></defs>
+                        <g id="cone" data-svg-origin="23.050521850585938 38" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px 0px;">
+                          <path class="cls-1" d="M10.36 38l25.54 5.38s-18.58 45-22.65 44.19S10.36 38 10.36 38z"></path>
+                          <path fill="none" stroke-width="2.5" stroke-linejoin="round" stroke="#0d0802" d="M10.47 75.08l17.72-19.21-5.31-13.19-10.35 10.21 8.52 23.83"></path>
+                        </g>
+                        <circle id="red" cx="14.15" cy="29.68" r="11.48" stroke-width="2.5" fill="#cc302b" stroke-miterlimit="10" stroke="#0d0802" data-svg-origin="14.149999618530273 41.15999984741211" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px 0px;"></circle>
+                        <circle id="yellow" class="cls-1" cx="36.81" cy="34.35" r="11.48" data-svg-origin="36.810001373291016 45.82999801635742" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px 0px;"></circle>
+                        <circle id="white" cx="29.08" cy="17.27" r="11.48" fill="#fff" stroke-width="2.5" stroke-linejoin="round" stroke="#0d0802" data-svg-origin="29.079999923706055 17.270000457763672" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px 0px;"></circle>
+                      </svg>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="https://paradis-is.dk/varianter/" target="_blank">
+                    <img src="@asset('img/main/paradis-kop.svg')" alt="Isbæger" id="menu-cup"/>
+                    <p>Produkter</p>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="https://paradis-is.dk/butikker/" target="_blank">
+                    <img src="@asset('img/main/paradis-butik.svg')" alt="Paradis butik" id="menu-shop"/>
+                    <p>Find butik</p>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="https://paradis-is.dk/catering/" target="_blank">
+                    <img src="@asset('img/main/paradis-klokke.svg')" alt="Paradis klokke" id="menu-bell"/>
+                    <p>Catering</p>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="/minparadis">
+                    <img src="@asset('img/main/paradis-vogn.svg')" alt="Paradis vogn" id="menu-cart"/>
+                    <p>Bestilling</p>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="https://paradis-is.dk/hvem-er-vi/" target="_blank">
+                    <img src="@asset('img/main/paradis-info.svg')" alt="Paradis info" id="menu-info"/>
+                    <p>Om paradis</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="site-content">
+    <header class="header-bg">
+        <div class="header-icecream">
+            <div class="container-wide">
+                <div class="row">
+                    <div class="col-xs-8 col-sm-4 col-md-4 col-lg-2">
+                        <div class="logo-text">
+                            <img src="@asset('img/main/paradis-logo-text-white.svg')" alt="White logo">
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-lg-8 not-mobile"></div>
+                    <div class="col-md-2 col-lg-2 not-mobile">
+                        <div class="cart-button main-button">
+                            <a href="#">Kurven er tom</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+                        <h1 class="heading header-heading">VELKOMMEN HOS PARADIS</h1>
+                        <p class="text header-text">Hos Paradis lever og ånder vi nemlig for at give dig en fantastisk is-oplevelse. Vi er din lokale ismand i hele Danmark.</p>
+                        <div class="main-button header-button">
+                            <a href="#">Få is til døren</a>
+                        </div>
+                    </div>
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-3"></div>
+                    <div class="scroll-for-more">
+                        <img src="@asset('img/main/scroll-for-mere.svg')" alt="scroll ned for mere indhold">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="beige">
+        <div class="container-wide eco-container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <img class="fit-to-col eco-img" src="@asset('img/main/ingredienser.jpg')" alt="De bedste råvarer er økologiske">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                    <h2 class="heading eco-heading">ØKOLOGI OG <br>GODE RÅVARER</h2>
+                    <img class="eco-icon" src="@asset('img/main/oeko-vektor.svg')" alt="økologiske varer">
+                    <p class="text eco-text">Vi bruger udelukkende frisk frugt til vores frugt-is. Vi handler vores frugt lokalt for at den er så frisk og fuld af smag som muligt. Vores mere eksotiske råvarer bliver udvalgt med stor omhu fra hele verden: Kakao fra Den Dominikanske Republik, Bourbon vanilje fra Madagaskar, italiensk lakridspulver og italienske pistacie og hasselnødder. Ens for alle vores råvarer er deres fantastiske smag. 
+                            <br><br>En stor del af vores råvarer er økologiske. Vores havredrik, mælk, fløde og rørsukker er økologisk og vores kakao og hvide chokolade er både Fair Trade og økologisk certificeret.
+                            <br><br>Velbekomme!
+                    </p>
+                    <div class="main-button eco-button">
+                        <a href="#">Se dit lokale sortiment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-wide some-container">
+        <div class="row center-text">
+            <h2 class="heading some-header">FØLG MED PÅ FACEBOOK OG INSTAGRAM</h2>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <img class="fit-to-col some-img" src="@asset('img/main/insta1.jpg')" alt="">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <img class="fit-to-col some-img" src="@asset('img/main/insta2.jpg')" alt="">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <img class="fit-to-col some-img" src="@asset('img/main/insta3.jpg')" alt="">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <img class="fit-to-col some-img" src="@asset('img/main/insta1.jpg')" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <img class="fit-to-col some-img" src="@asset('img/main/insta2.jpg')" alt="">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <img class="fit-to-col some-img" src="@asset('img/main/insta3.jpg')" alt="">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <img class="fit-to-col some-img" src="@asset('img/main/insta1.jpg')" alt="">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <img class="fit-to-col some-img" src="@asset('img/main/insta2.jpg')" alt="">
+            </div>
+        </div>
+    </div>
+    <svg id="stroke" xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+        <defs>
+            <path id="line" d="M2 2c49.7 2.6 100 3.1 150 1.7-46.5 2-93 4.4-139.2 7.3 45.2-1.5 90.6-1.8 135.8-.6" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+        </defs>
+    </svg>
+    <footer class="beige">
+        <div class="container-wide">
+            <div class="row">
+                <div class="col-xs-8 col-sm-6 col-md-2 col-lg-2 col-xs-offset-right-4 col-sm-offset-right-6 col-md-offset-right-1">
+                    <img src="@asset('img/main/paradis-logo-text.svg')" alt="Paradis logo">
+                    <p class="text footer-text">&copy; 2019 Paradis Danmark A/S</p>
+                    <div class="some-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="30 40 390 370">
+                                <path class="main" style="
+                                  fill: none;
+                                  stroke: #202020;
+                                  stroke-linecap: round;
+                                  stroke-linejoin: round;
+                                  stroke-width: 11px;" id="instagram_line" d="M142 56.9c38.8-1.8 60.3-1.5 91.4-.9C294.6 57.2 400 40.9 400 128.9c0 20.6 6.4 109.1 1 193-1.7 26.6-10.8 66.5-55.7 66.5-51 0-79.2 10.8-221.9 3.6 0 0-74.3 2.3-74.3-119.4 0-55.5-4.3-110.9-1-163.2 2.2-33.9 48.4-46.4 66.7-47.2m220 63.9c-3.9-2.6-20.6-6.4-22.8-2.3-7.6 14.4 12.8 15 15.4 6.3-.2-3.5-4.6-6-7.7-4.3m-174.3 93.4c-2.1 60.8 52.7 83.3 86.5 74.2 39.6-10.6 56.7-11.9 58.3-59.2 2.8-81.8-62.4-92.5-96.1-78-14.4 6.1-47 13.1-48.7 63z"></path>
+                                <g id="instgram_scribble">
+                                  <path class="scribble scribble1" d="M322 106.6c2.4 3.4 39.1-31.3 40.9-28.7.4.6-20.5 30.3-20.5 30.3 2.4 3.4 36.9-22.8 36.9-22.8s-30.6 32.3-28.5 35.3c0 0 38.2-25.7 40.5-22.5" style="stroke-dashoffset: 224.802; stroke-dasharray: 0px, 999999px; opacity: 0;"></path>
+                                  <path class="scribble scribble2" d="M210.4 141.2c8.2 11.7 103.8-89.2 110.9-79.1s-94 80.1-94 80.1 103.6-74 104.5-72.7L243 143c2.1 3 108.3-74.4 109.2-73.1 5.2 7.4-99.8 72.3-94.5 79.9l42.1-28c.3.4-37.9 35.2-35.4 38.8 1.3 1.8 31.1-27 33.5-23.5l-19.7 28.5s21.1-19.1 23.1-16.2c0 0-15.2 21.8-13.9 23.6 0 0 97.7-69.5 102.1-63.3 0 0-102.4 70-98.6 75.5 6.8 9.7 99.7-69 99.7-69s-97.1 80.6-96.1 81.9l105.3-73.7s-110 82.3-105.6 88.6l105.2-73.7-96.5 82.2 87.6-61.3-90.7 77.7c1.3 1.9 93.7-65.2 93.7-65.2l-94.6 89.1s95.7-73.2 102.4-63.6" style="stroke-dashoffset: 2611.56; stroke-dasharray: 0px, 999999px; opacity: 0;"></path>
+                                  <path class="scribble scribble3" d="M60.5 101.7s43-40.8 47.2-34.8-52.3 53-52.3 53c3.3 4.7 73.8-53.4 73.8-53.4 1.6 2.3-72.1 66.9-72.1 66.9 5.6 7.9 93-74.5 97.7-67.9l-95 81.4C62.2 150.3 170.7 69 170.7 69l-110 91.2s126-96.4 130-90.6S55.9 178.2 55.9 178.2L218.8 64.6c.1.2-157.5 122.7-157.5 122.7 3 4.3 169.1-118.4 174.6-122.3-5.4 4.1-177.5 140.3-177.3 140.6L254.4 66.7C257.1 70.5 56 216 56 216L277.7 65c8.6 12.3-227.2 154.3-220.9 164.2S294.4 68 294.4 68L60 246.8s74.1-58.7 79.2-51.3c.5.7-80.3 66.7-80.3 66.7l76.1-54.8c1.7 2.4-79.2 63.7-75.5 69 0 0 70.3-53.7 74.3-48 0 0-79.1 67-78.7 67.5 1.7 2.4 84.8-70.4 89.3-64l-87 77.1s77.9-65.4 82.2-59.4c0 0-76.8 62.9-74.2 66.6s79.4-55.6 79.4-55.6l-80.9 73.5s81.4-63.3 83.3-60.5c4.6 6.6-75.9 70-75.9 70l87.8-63.7s-83.7 72.9-82.5 74.6c0 0 80.3-72 86.7-62.9 2.3 3.2-77.3 68.8-77.3 68.8s89.2-73.2 94.2-66-94.5 80.9-94.5 80.9c6.1 8.8 109.7-76.9 109.7-76.9l-97.6 83c1.7 2.4 121.1-84.8 121.1-84.8l-105 88.2s122.5-99 128.7-90.1c4.5 6.4-105.8 88.7-105.8 88.7 10 14.1 264.5-185.2 264.5-185.2L156.7 384.1l244-170.8c6.4 9.2-222.6 170.5-222.6 170.5 6.6 9.4 221.1-161.8 224.4-157.1 0 0-210.3 151.5-205.4 158.5 0 0 189.3-139.4 192.5-134.8 0 0-176.1 134.9-174.7 136.9l183.7-128.6c6.1 8.7-176.3 118.3-167 131.6 1.7 2.5 160.3-112.3 160.3-112.3 1.3 1.8-138.7 106.3-136.1 110 0 0 130.8-101.2 135.3-94.8 1.9 2.7-112.1 86-108.7 90.8 1 1.6 113.4-79.4 113.4-79.4 2.9 4.1-104.7 76.7-99.4 84.3 0 0 95.7-69.3 96.8-67.8 3.6 5.2-71.8 61.3-70.1 63.7 0 0 73.7-60 77.6-54.4 0 0-61.7 54.4-60.1 56.8l50.3-35.2" style="stroke-dashoffset: 10637.2; stroke-dasharray: 0px, 999999px; opacity: 0;"></path>
+                                </g>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="30 40 390 370">
+                                <path id="facebook_line" class="main" style="    fill: none;
+                                  stroke: #202020;
+                                  stroke-linecap: round;
+                                  stroke-linejoin: round;
+                                  stroke-width: 11px;" d="M187.6 360.7c-2-37.2-1.5-34.9-3.5-72.1l-39.9.8c2.6-17.2 3.2-34.4 5.8-51.6 13.4-.5 30.4-.4 43.8.2-1.5-13.9-.8-24.9-.8-31.7.1-24.5-.7-54.8 22.8-69 18.6-11.3 53.7-6.5 79.9-7.2-1.1 18.7.1 28.2.7 45.5-55.2-11-47.3 38.5-48.8 56.8l51-1c-.4 34.2-.6 31.5 1.1 52.2-19.2-1.1-36.2 1.3-54.8.4-1.8 39.7-1.9 71.4-.1 111.1 1.2-.1 71.7-2.7 92.5-1.4 60.1 3.6 60.9-43.6 67.2-153.3 9.2-159.1-21.9-188.6-161.9-188.6-48.8 0-175.6-1.5-189.1 52.1C39.1 161 45.4 213 45.4 273.8c0 58.9 9.9 123.5 69.7 123.5 15 0 57.7 1.5 73.3.7"></path>
+                                <g id="facebook_scribble">
+                                  <path class="scribble scribble1" d="M254.2 298.5s11.7-6.4 12.4-5.4-15 20.6-14.8 20.8 29.4-26.1 31.9-22.4-28.2 34.5-28.2 34.5c4.2 6.1 135.4-109.3 140.5-102S253.2 340.3 254.1 341.6c6.9 9.9 148.7-104.2 148.7-104.2 4.5 6.5-157.7 111-151 120.5 4.1 5.8 135.6-99.8 137.8-96.6L249.7 374c1.2 1.6 149.8-107.6 151-105.8 3.8 5.3-155.4 108.6-148.4 118.6l140.2-98.2c.3.4-123.6 96.3-123 97.1 6.7 9.5 118.5-79.4 118.5-79.4s-100.9 74.7-95.9 81.9c2.4 3.5 97.4-68.2 97.4-68.2s-75.2 65.8-74.5 66.8 66.8-57.9 72.1-50.5l-53 47.3c2.2 3.1 58.9-36.7 58.9-36.7 1.5 2.2-40.1 35.1-37.8 38.4" style="stroke-dashoffset: 2690.22; stroke-dasharray: 0px, 999999px; opacity: 0;"></path>
+                                  <path class="scribble scribble2" d="M263 195.5c.3.4 19.2-12.8 19.2-12.8s-22.8 27.7-21.7 29.3c0 0 121.3-91.7 124.4-87.2 1.5 2.1-126.5 101.5-125.7 102.7L390.5 135c2.6 3.8-113.5 90.5-111.6 93.3 4.4 6.3 113.7-80.1 113.7-80.1 2 3-102.6 76.1-97.5 83.4 2.8 3.9 104.3-73.5 104.3-73.5 2.3 3.3-102.4 82.7-100.4 85.5 0 0 92.2-77.2 98.1-68.8s-95.9 81.9-95.9 81.9c6 8.4 98.2-68.8 98.2-68.8s-93.1 81.6-92 83.1c6.3 8.9 89.3-72.4 92-68.5" style="stroke-dashoffset: 1821.64; stroke-dasharray: 0px, 999999px; opacity: 0;"></path>
+                                  <path class="scribble scribble3" d="M243.7 121.1s75.9-56.9 78.8-52.6c.4.5-62.6 51.7-62.6 51.7 4 5.7 76.7-49.5 77.9-47.8l-61.4 55.1 79-52.8s-59.5 46.2-56 51.3 62.7-45.8 63.6-44.6-60.8 53.6-59.1 56.1 61.2-45.1 62.2-43.6-66.3 55-62.4 60.5c2 2.8 77.4-56.3 77.4-56.3 5.2 7.4-88.2 68.9-84.7 73.9l87.7-61.4" style="stroke-dashoffset: 1164.8; stroke-dasharray: 0px, 999999px; opacity: 0;"></path>
+                                  <path class="scribble scribble4" d="M62.6 88.7s7.2-7.1 8.2-5.7-12.4 23-12.3 23.2l56.6-37-61.4 55.9c.2.3 88.8-60.1 88.8-60.1l-85.6 71.7c1.9 2.6 107.6-72.2 107.6-72.2s-112.1 80.9-107.9 87c2.2 3.1 131.3-97.6 136.3-90.5.1.1-149.7 96.7-140.9 109.2 3.4 5 161-108.6 161-108.6S40.1 170.8 50.6 185.8c7 10 180.1-132.3 185.4-124.7 0 0-192.3 136.5-184.6 136.8S252.2 63.4 252.2 63.4C260.5 75.2 33 204.3 54.9 212L275 63c4.9 7-232 154.6-223.8 166.4 4.6 6.5 236.6-170.3 241.2-163.6 0 0-241.2 163.6-238.8 176.5 1.9 10 251.8-174.5 251.8-174.5S48.9 253.4 52.1 258c0 0 131.2-103.7 136.4-96.3 7.3 10.4-133.1 108.7-133.1 108.7 7.5 10.7 117.6-100.3 125.7-88.8 2.1 3.1-129.2 105.8-129.2 105.8S178.5 185.6 184.3 194L57.2 297.6c1.8 2.5 125.6-87.9 125.6-87.9 2.9 4.2-123.5 101.1-123.5 101.1s71.8-61.7 77.2-54c0 0-76 63.6-74 66.4 0 0 78.9-66.3 84.1-58.9 0 0-90.1 67.7-85.3 74.4 2.5 3.6 70.7-60.5 75.9-53.1l-70.7 64.1c1.2 1.7 78.5-64.9 83.2-58.2 0 0-85.3 69.4-82.9 72.8l98.7-69.3c5.2 7.5-84.7 74.1-84.7 74.1s91-75 96.2-67.5c1.1 1.5-91.1 78.4-91.1 78.4 1.7 2.4 93.5-66.2 93.9-65.7 5.2 7.5-82.4 72.4-82.4 72.4 5.1 7.3 83.6-58.6 83.6-58.6l-66.2 61.4c4.8 6.8 59.9-42.3 59.9-42.3s-36.6 37-34.3 40.3c.5.7 43.3-37.5 45.9-33.8s-29.6 37-29.6 37 22.7-23 25.3-19.3l-10 16.9c.8 1.1 12.8-8.2 12.8-8.2" style="stroke-dashoffset: 7447.03; stroke-dasharray: 0px, 999999px; opacity: 0;"></path>
+                                </g>
+                            </svg>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+                    <h3 class='footer-heading'>Produkter</h3>
+                    <ul>
+                        <li><a href="#">Isvarianter</a></li>
+                        <li><a href="#">Isdesserter</a></li>
+                        <li><a href="#">Isbokse</a></li>
+                        <li><a href="#">Is i bæger og vaffel</a></li>
+                        <li><a href="#">Shakes og Frappe</a></li>
+                        <li><a href="#">Varme drikke</a></li>
+                        <li><a href="#">Plantebaserede is</a></li>
+                        <li><a href="#">Allergi</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+                        <h3 class='footer-heading'>Om Paradis</h3>
+                        <ul>
+                            <li><a href="#">Hvem er vi?</a></li>
+                            <li><a href="#">Gavekort</a></li>
+                            <li><a href="#">Kontakt os</a></li>
+                            <li><a href="#">Presse</a></li>
+                            <li><a href="#">Din egen Paradis?</a></li>
+                            <li><a href="#">Job i Paradis</a></li>
+                        </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+                        <h3 class='footer-heading'>Paradis Danmark A/S</h3>
+                        <ul>
+                            <li><b>Vesterbrogade 4A 1.<br>1620 København V</b></li>
+                            <li><b>Telefon:</b> 35 35 79 02<br>(man-fre 08:00 - 16:00)</li>
+                            <li><b>Email:</b> <a href="#">info@paradis-is.dk</a></li>
+                            <li><b>CVR-nr.:</b> 30 50 05 04</li>
+                            <li><a class="btn" href="/">Se åbningstider
+                                <svg class="button-stroke" viewBox="0 0 154 13">
+                                    <use href="#line"></use>
+                                </svg>
+                                <svg class="button-stroke" viewBox="0 0 154 13">
+                                    <use href="#line"></use>
+                                </svg>
+                            </a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+@endblock
+
+@block('scripts')
+<script src="@asset('js/hide-menu-on-scroll.js', true)"></script>
+@endblock

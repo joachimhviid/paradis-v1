@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 90">
+	  <defs><style>.cls-1{fill:#f9b500;stroke:#0d0802;stroke-linejoin:round;stroke-width:2.5px}</style></defs>
+	  <g id="cone" data-svg-origin="23.050521850585938 38" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px 0px;">
+		<path class="cls-1" d="M10.36 38l25.54 5.38s-18.58 45-22.65 44.19S10.36 38 10.36 38z"></path>
+		<path fill="none" stroke-width="2.5" stroke-linejoin="round" stroke="#0d0802" d="M10.47 75.08l17.72-19.21-5.31-13.19-10.35 10.21 8.52 23.83"></path>
+	  </g>
+	  <circle id="red" cx="14.15" cy="29.68" r="11.48" stroke-width="2.5" fill="#cc302b" stroke-miterlimit="10" stroke="#0d0802" data-svg-origin="14.149999618530273 41.15999984741211" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px 0px;"></circle>
+	  <circle id="yellow" class="cls-1" cx="36.81" cy="34.35" r="11.48" data-svg-origin="36.810001373291016 45.82999801635742" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px 0px;"></circle>
+	  <circle id="white" cx="29.08" cy="17.27" r="11.48" fill="#fff" stroke-width="2.5" stroke-linejoin="round" stroke="#0d0802" data-svg-origin="29.079999923706055 17.270000457763672" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px 0px;"></circle>
+	</svg>

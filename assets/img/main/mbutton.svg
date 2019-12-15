@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="400" height="1400">
+<defs>
+<symbol id="button">
+<path d="M398 195c-2 4-13 1-23 1l-28 1-51-2c-44 0-37 1-84 2h-51l-35 1-32-2c-23 0-39 3-72 3l-18-2-2-22 1-74-1-64C2-2 2 2 19 2c75 0 50-1 66-1 43 0 46 2 67 2 14 0 47-2 112-2l70 1 41-1c15 0 25-1 24 6l-2 67 1 61c0 15 2 55 0 60z"/>
+</symbol>
+</defs>
+  <use xlink:href="#button" x="0" y="000" fill="#FF0000" />
+  <use xlink:href="#button" x="0" y="400" fill="#68C1EF" />
+  <use xlink:href="#button" x="0" y="800" fill="#000000" />
+  <use xlink:href="#button" x="0" y="1200" fill="#FFFFFF" />
+</svg>
+

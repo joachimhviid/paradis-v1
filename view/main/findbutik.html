@@ -1,0 +1,172 @@
+@extends('base')
+
+@block('title', 'MinParadis Iskonfigurator - Paradis')
+
+@block('styles')
+<link rel="stylesheet" href="@asset('css/isconfig.css', true)">
+@endblock
+
+@block ('body')
+<div class="top-menu not-desktop" id="topbar">
+    <ul class="top-menu-wrapper">
+        <li class="top-menu-item">
+            <a href="/">
+                <img src="@asset('img/main/paradis.svg')" alt="Paradis isvaffel logo" />
+            </a>
+        </li>
+        <li class="top-menu-item mobile-cart">
+            <a>
+                <img src="@asset('img/main/paradis-vogn.svg')" alt="Paradis vogn" />
+            </a>
+        </li>
+    </ul>
+</div>
+<nav class="menu">
+    <div class="menu-wrapper">
+        <ul class="menu-item-list">
+            <li class="menu-item logo-item">
+                <a href="/">
+                    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 90">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #f9b500;
+                                    stroke: #0d0802;
+                                    stroke-linejoin: round;
+                                    stroke-width: 2.5px;
+                                }
+                            </style>
+                        </defs>
+                        <g id="cone" data-svg-origin="23.050521850585938 38" transform="matrix(1,0,0,1,0,0)"
+                            style="transform-origin: 0px 0px 0px;">
+                            <path class="cls-1" d="M10.36 38l25.54 5.38s-18.58 45-22.65 44.19S10.36 38 10.36 38z">
+                            </path>
+                            <path fill="none" stroke-width="2.5" stroke-linejoin="round" stroke="#0d0802"
+                                d="M10.47 75.08l17.72-19.21-5.31-13.19-10.35 10.21 8.52 23.83"></path>
+                        </g>
+                        <circle id="red" cx="14.15" cy="29.68" r="11.48" stroke-width="2.5" fill="#cc302b"
+                            stroke-miterlimit="10" stroke="#0d0802"
+                            data-svg-origin="14.149999618530273 41.15999984741211" transform="matrix(1,0,0,1,0,0)"
+                            style="transform-origin: 0px 0px 0px;"></circle>
+                        <circle id="yellow" class="cls-1" cx="36.81" cy="34.35" r="11.48"
+                            data-svg-origin="36.810001373291016 45.82999801635742" transform="matrix(1,0,0,1,0,0)"
+                            style="transform-origin: 0px 0px 0px;"></circle>
+                        <circle id="white" cx="29.08" cy="17.27" r="11.48" fill="#fff" stroke-width="2.5"
+                            stroke-linejoin="round" stroke="#0d0802"
+                            data-svg-origin="29.079999923706055 17.270000457763672" transform="matrix(1,0,0,1,0,0)"
+                            style="transform-origin: 0px 0px 0px;"></circle>
+                    </svg>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="/produkter">
+                    <img src="@asset('img/main/paradis-kop.svg')" alt="Isbæger" id="menu-cup" />
+                    <p>Produkter</p>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="/find-butik">
+                    <img src="@asset('img/main/paradis-butik.svg')" alt="Paradis butik" />
+                    <p>Find butik</p>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="/catering">
+                    <img src="@asset('img/main/paradis-klokke.svg')" alt="Paradis klokke" />
+                    <p>Catering</p>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="/findbutik.html">
+                    <img src="@asset('img/main/paradis-vogn.svg')" alt="Paradis vogn" />
+                    <p>Bestilling</p>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="/om-paradis">
+                    <img src="@asset('img/main/paradis-info.svg')" alt="Paradis info" />
+                    <p>Om paradis</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<button type="button" class="menu-toggle" onclick="ToggleMenu()" id="mobileToggle">Find butik</button>
+<div class="mobile-config-menu not-desktop" id="mobileConfigMenu">
+    <ul>
+        <li>
+            <a href="@self" class="configmenubutton">
+                Find butik
+            </a>
+        </li>
+        <li>
+            <button class="configmenubutton">
+                Grundsmag
+            </button>
+        </li>
+        <li>
+            <button class="configmenubutton">
+                Ekstra smage<i class="counter">0/2</i>
+            </button>
+        </li>
+        <li>
+            <button class="configmenubutton">
+                Striber<i class="counter">0/2</i>
+            </button>
+        </li>
+        <li>
+            <button class="configmenubutton">
+                Knas og stykker<i class="counter">0/2</i>
+            </button>
+        </li>
+        <li>
+            <button class="configmenubutton">
+                Føj til kurv
+            </button>
+        </li>
+    </ul>
+</div>
+<form class="site-content">
+    <div class="container-wide">
+        <div class="row">
+            <div class="col-xs-12 center-text">
+                <h1 class="heading config-heading">MIN PARADIS</h1>
+                <p id="headConfigText" class="text config-text">
+                    Vælg den butik du vil bestille MinParadis hos.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="beige config-content">
+        <section id="butik" class="container-wide config-section active-section">
+
+            @isset $getShopError
+            <p class="alert-error">@echo $getShopError</p>
+            @else
+                @if (is_array($shops))
+                    <div class="row">
+                        @foreach ($shops as $shop)
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="nearbyshop">
+                                    <h2 class="shopname">@echo $shop['name']</h2>
+                                    <p class="text shopaddress">@echo $shop['address']</p>
+                                    <div class="buttonwrapper">
+                                        <a href="/minparadis/konfigurator/@echo $shop['id']" class="main-button">Vælg</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @end
+                    </div>
+                @else
+                    <p>Der kunne ikke findes nogle butikker</p>
+                @end
+            @end
+
+        </section>
+    </div>
+</form>
+@endblock
+
+@block('scripts')
+<script src="@asset('js/hide-menu-on-scroll.js', true)"></script>
+@endblock

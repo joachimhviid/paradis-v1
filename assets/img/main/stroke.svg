@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 8">
+<defs>
+<style>
+path {
+fill: none;
+stroke: #202020;
+stroke-width: 12px;
+stroke-linecap: round;
+stroke-miterlimit: 10;
+}
+</style>
+</defs>
+<path d="M0,4C84.3,4,56.2,6,74.2,6c48.3,0,51.6-4,75.2-4,15.8,0,52.8,4,125.9,4,0,0,58.2-3,78.6-3S400,4,400,4"/>
+</svg>

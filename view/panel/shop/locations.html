@@ -1,0 +1,79 @@
+@extends('panel.panel')
+
+@block('title', 'Butikker - Paradis Admin')
+
+@block('username', $account['name'])
+
+@block('content')
+	<div class="row">
+	  <div class="col-xs-12">
+            
+        @if ($account['admin'] === 1)
+            <div class="title-container">
+            <h2>Opret butik</h2>
+            </div>
+            @if (isset($createShopError))
+                <p class="alert-error">@echo $createShopError</p>
+            @elseif (isset($createShopSuccess))
+                <p class="alert-success">@echo $createShopSuccess</p>
+            @end
+            <div class="block">
+                <form class="form main-form" action="@self" method="post" >
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <input class="main-input" name="name" type="text" placeholder="Butik navn*" required />
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <input class="main-input" name="address" type="text" placeholder="Adresse*" required />
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <input class="main-input" name="email" type="email" placeholder="Butik email*" required />
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <input class="main-input" name="phone" type="text" placeholder="Butik telefon" />
+                        </div>
+                        <div class="col-xs-12">
+                            <input class="main-form-button" name="create-location-submit" type="submit" value="Opret" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        @end
+        
+        <div class="title-container">
+            <h2>Butikker</h2>
+        </div>
+        @if (isset($deleteShopError))
+            <p class="alert-error">@echo $deleteShopError</p>
+        @elseif (isset($deleteShopSuccess))
+            <p class="alert-success">@echo $deleteShopSuccess</p>
+        @end
+        <div class="block">
+            @isset $getShopError
+                <p class="alert-error">@echo $getShopError</p>
+            @else
+                @if (is_array($shops))
+                    <div class="row">
+                        @foreach ($shops as $shop)
+                            <div class="col-xs-12 col-sm-4">
+                                <form class="form card" action="@self" method="post">
+                                    <p><b>@echo $shop['name']</b></p>
+                                    <div><p class="card-text">@echo $shop['address']</p></div>
+                                    <div class="input-wrapper">
+                                    <a class="main-form-button" href="/admin/locations/@echo $shop['id']">Rediger</a>
+                                    <input name="id" type="number" value="@echo $shop['id']" hidden />
+                                    <input class="main-form-button button-text" name="delete-location-submit" type="submit" value="Slet" />
+                                    </div>
+                                </form>
+                            </div>
+                        @end
+                    </div>
+                @else
+                    <p>Der kunne ikke findes nogle butikker med dig som administrator</p>
+                @end
+            @end
+        </div>
+			
+	  </div>
+	</div>
+@endblock

@@ -1,0 +1,18 @@
+@font-face
+{ font-family: AracneCondensed; src: url(ARACNE-CONDENSED_light.ttf);
+font-weight: 100;
+}
+@font-face
+{ font-family: AracneCondensed; src: url(ARACNE-CONDENSED_regular.ttf);
+font-weight: 400;
+}
+@font-face
+{ font-family: AracneCondensed; src: url(ARACNE-CONDENSED_light_italic.ttf);
+font-weight: 100;
+font-style: italic;
+}
+@font-face
+{ font-family: AracneCondensed; src: url(ARACNE-CONDENSED_regular_italic.ttf);
+font-weight: 400;
+font-style: italic;
+}

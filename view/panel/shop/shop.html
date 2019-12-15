@@ -1,0 +1,107 @@
+@extends('panel.panel')
+
+@block('title', 'Butikker - Paradis Admin')
+
+@block('username', $account['name'])
+
+@block('content')
+	<div class="row">
+	  <div class="col-xs-12">
+
+        @isset $getShopError
+            <div class="block">
+                <p class="alert-error">@echo $getShopError</p>
+            </div>
+        @else
+            @if (is_array($shop))
+                <div class="title-container">
+                    <h2>@echo $shop['name']</h2>
+                    <h3>@echo $shop['address']</h3>
+                    <h4>Email: @echo $shop['email']</h4>
+                    @if (strlen($shop['phone']) >= 8)
+                        <h4>Telefon: @echo $shop['phone']</h4>
+                    @end
+                    <br><br>
+                </div>
+
+                <div class="title-container">
+                    <h2>Rediger oplysninger</h2>
+                </div>
+                @if (isset($updateShopError))
+                    <p class="alert-error">@echo $updateShopError</p>
+                @elseif (isset($updateShopSuccess))
+                    <p class="alert-success">@echo $updateShopSuccess</p>
+                @end
+
+                <div class="block">
+                    <form class="form main-form" action="@self" method="post" >
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <input class="main-input" name="name" type="text" placeholder="Butik navn*" value="@echo $shop['name']" required />
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <input class="main-input" name="address" type="text" placeholder="Adresse*" value="@echo $shop['address']" required />
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <input class="main-input" name="email" type="email" placeholder="Butik email*" value="@echo $shop['email']" required />
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <input class="main-input" name="phone" type="text" placeholder="Butik telefon" value="@echo $shop['phone']" />
+                            </div>
+                            <div class="col-xs-12">
+                                <input class="main-form-button" name="edit-location-submit" type="submit" value="Gem ændring" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="title-container">
+                    <h2>Sortiment til MinParadis</h2>
+                    <h3>Vælg produkter til eller fra, alt efter om de skal vises på konfiguratoren</h3>
+                </div>
+                @if (isset($updateShopSelectionError))
+                    <p class="alert-error">@echo $updateShopSelectionError</p>
+                @elseif (isset($updateShopSelectionSuccess))
+                    <p class="alert-success">@echo $updateShopSelectionSuccess</p>
+                @end
+                <div class="block">
+                    @isset $getSelectionError
+                        <p class="alert-error">@echo $getSelectionError</p>
+                    @else
+                        @if (is_array($selection))
+                            <form class="form" action="@self" method="post">
+                                <div class="row">
+                                    @foreach ($selection as $product)
+                                    <div class="col-xs-12 col-sm-4 col-smd-4 col-md-3">
+                                        <div class="card card-flex">
+                                            <p><b>@echo $product['name']</b></p>
+                                            <p class="card-text">@echo $product['description']</p>
+                                            <img src="@asset $product['image']" alt="@echo $product['name']" style="width:200px;height:auto;" />
+                                            <label class="si si-switcher checkbox">
+                                                <input style="display: none;" type="checkbox" name="selection[]" value="@echo $product['id']"
+                                                @if (in_array($product['id'], $shop['selection']))
+                                                    checked
+                                                @end
+                                                >
+                                                <span class="si-label"></span> 
+                                            </label>
+                                        </div>
+                                    </div>
+                                    @end
+                                </div>
+                                <input class="main-form-button" name="save-selection-location-submit" type="submit" value="Gem ændring" />
+                            </form>
+                        @else
+                            <p>Der kunne ikke findes nogle varianter</p>
+                        @end
+                    @end
+                </div>
+
+            @else
+                <p>Information om denne butik kunne ikke hentes</p>
+            @end
+        @end
+			
+	  </div>
+	</div>
+@endblock

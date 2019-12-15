@@ -1,0 +1,14 @@
+<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_1" width="50" height="50" fill="none"/>
+  <path stroke="#ffffff" id="svg_2" stroke-width="3" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" fill="none" d="m31.816895,34.229546c0,0 8.094576,0 8.860016,0c4.250821,0 7.695301,-3.44448 7.695301,-7.694327s-3.44448,-7.695301 -7.695301,-7.695301c-0.019477,0 -0.037006,0.002922 -0.056483,0.002922c0.059404,-0.481078 0.100306,-0.967999 0.100306,-1.464659c0,-6.534481 -5.296727,-11.832182 -11.832182,-11.832182c-5.092221,0 -9.419001,3.222444 -11.088167,7.73328c-1.058566,-1.060514 -2.523225,-1.717858 -4.139803,-1.717858c-3.232182,0 -5.851817,2.619635 -5.851817,5.850844c0,0.082777 0.009738,0.162632 0.01266,0.244434c-3.569131,0.986502 -6.193636,4.247899 -6.193636,8.130608c0,4.662756 3.779481,8.442238 8.443211,8.442238c0.805367,0 8.112105,0 8.112105,0"/>
+  <polyline id="svg_3" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke="#ffffff" points="20,28 25,23 30,28   " fill="none"/>
+  <line id="svg_4" y2="23.333" y1="43" x2="25" x1="25" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke="#ffffff" fill="none"/>
+ </g>
+</svg>

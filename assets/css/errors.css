@@ -1,0 +1,20 @@
+.alert-error, .alert-success {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    padding: 18px 20px;
+    border-radius: 3px;
+}
+
+.alert-error {
+    background: #F8D7DA;
+    border: 1px solid #F5C6CB;
+    color: #721C24;
+}
+
+.alert-success {
+    background: #D4EDDA;
+    border: 1px solid #C3E6CB;
+    color: #155724;
+}

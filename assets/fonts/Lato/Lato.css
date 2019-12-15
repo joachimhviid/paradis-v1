@@ -1,0 +1,54 @@
+@font-face { 
+font-family: Lato; 
+src: url(Lato-Thin.ttf);
+font-weight: 100;
+font-display: swap;
+}
+@font-face { 
+font-family: Lato; 
+src: url(Lato-Regular.ttf);
+font-weight: 400;
+font-display: swap;
+}
+@font-face { 
+font-family: Lato; 
+src: url(Lato-Black.ttf);
+font-weight: 600;
+font-display: swap;
+}
+@font-face { 
+font-family: Lato; 
+src: url(Lato-Bold.ttf);
+font-weight: 700;
+font-display: swap;
+}
+
+/* Italic */
+@font-face { 
+font-family: Lato; 
+src: url(Lato-ThinItalic.ttf);
+font-weight: 100;
+font-style: italic;
+font-display: swap;
+}
+@font-face { 
+font-family: Lato; 
+src: url(Lato-RegularItalic.ttf);
+font-weight: 400;
+font-style: italic;
+font-display: swap;
+}
+@font-face { 
+font-family: Lato; 
+src: url(Lato-BlackItalic.ttf);
+font-weight: 600;
+font-style: italic;
+font-display: swap;
+}
+@font-face { 
+font-family: Lato; 
+src: url(Lato-BoldItalic.ttf);
+font-weight: 700;
+font-style: italic;
+font-display: swap;
+}

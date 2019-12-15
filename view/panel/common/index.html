@@ -1,0 +1,24 @@
+@extends('panel.panel')
+
+@block('title', 'Forside - Paradis Admin')
+
+@block('username', $account['name'])
+
+@block ('content')
+	<div class="row">
+	  <div class="col-xs-12">
+			
+		<div class="title-container">
+		  <h2>Velkommen tilbage, @echo $account['name']</h2>
+		  <h3>Brug menuen til venstre (toppen på telefon) for at navigere kontrolpanelet</h3>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DglsaWVm3HY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		</div>
+			
+	  </div>
+	</div>
+@endblock

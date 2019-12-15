@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>@insert('title')</title>
+  <meta name="description" content="Paradis Danmark - Altid frisklavet is">
+  <meta name="author" content="Paradis Danmark">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link rel="stylesheet" href="@asset('css/reset.css', true)">
+  <link rel="stylesheet" href="@asset('css/grid.css', true)">
+  <link rel="stylesheet" href="@asset('iconfont/material-icons.css')">
+  <link rel="stylesheet" href="@asset('css/errors.css', true)">
+  @insert('styles')
+  <link rel="shortcut icon" href="icon url" /> 
+  
+</head>
+<body>
+
+@insert('body')
+
+</body>
+<script src="@asset('js/main.js', true)"></script>
+@insert('scripts')
+</html>
